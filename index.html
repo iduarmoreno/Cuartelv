@@ -71,6 +71,20 @@
             padding: 2px !important;
         }
 
+        /* FIRMA PROFESIONAL DEL AUTOR */
+        #firma-autor {
+            position: absolute;
+            bottom: 0px;
+            left: 5px;
+            z-index: 1005; /* Lo ponemos por encima del mapa */
+            background: rgba(255, 255, 255, 0.7); /* Fondo semitransparente como el original */
+            padding: 2px 5px;
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            color: #333;
+            pointer-events: none; /* Para que los clics pasen de largo al mapa */
+        }
+
         /* AJUSTES MÓVIL */
         @media screen and (max-width: 768px) {
             #logo-institucional {
@@ -93,6 +107,11 @@
                 top: 50px;
                 right: 50px;
             }
+            
+            #firma-autor {
+                font-size: 9px;
+                bottom: 2px;
+            }
         }
     </style>
 </head>
@@ -101,6 +120,8 @@
 
     <img id="logo-institucional" src="2026logo.png" alt="Logo Moreno IDUAR">
     <img id="flecha-norte" src="flecha.svg" alt="Norte">
+
+    <div id="firma-autor"><strong>Map design & development by Engineer Nelson Pelayo</strong></div>
 
     <div id="map">
         <div id="popup" class="ol-popup">
@@ -179,16 +200,6 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
 
 
 
