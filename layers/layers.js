@@ -1,29 +1,29 @@
 var wms_layers = [];
 
         var lyr_Positronnolabels_0 = new ol.layer.Tile({
-            'title': 'Gris Claro [Sin Calles]',
+            'title': 'Positron [no labels]',
             'opacity': 1.000000,
             source: new ol.source.XYZ({
-            attributions: 'Tiles &copy; Esri',
-                url: 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}'
+            attributions: '&nbsp;&middot; <a href="https://cartodb.com/basemaps/">Map tiles by CartoDB, under CC BY 3.0. Data by OpenStreetMap, under ODbL.</a>',
+                url: 'https://basemaps.cartocdn.com/rastertiles/light_nolabels/{z}/{x}/{y}.png?key=cb1_3o17_1_22ce94d10e25c725ed31e325'
             })
         });
 
         var lyr_DarkMatternolabels_1 = new ol.layer.Tile({
-            'title': 'Gris Oscuro [Sin Calles]',
+            'title': 'Dark Matter [no labels]',
             'opacity': 1.000000,
             source: new ol.source.XYZ({
-            attributions: 'Tiles &copy; Esri',
-                url: 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}'
+            attributions: '&nbsp;&middot; <a href="https://cartodb.com/basemaps/">Map tiles by CartoDB, under CC BY 3.0. Data by OpenStreetMap, under ODbL.</a>',
+                url: 'https://basemaps.cartocdn.com/rastertiles/dark_nolabels/{z}/{x}/{y}.png?key=cb1_3o17_1_22ce94d10e25c725ed31e325'
             })
         });
 
         var lyr_Voyagernolabelsretina_2 = new ol.layer.Tile({
-            'title': 'Fondo Blanco [Sin Calles]',
+            'title': 'Voyager [no labels] (retina)',
             'opacity': 1.000000,
             source: new ol.source.XYZ({
-            attributions: 'Tiles &copy; Esri',
-                url: 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}'
+            attributions: '&nbsp;&middot; <a href="https://cartodb.com/basemaps/">Map tiles by CartoDB, under CC BY 3.0. Data by OpenStreetMap, under ODbL.</a>',
+                url: 'https://basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}@2x.png?key=cb1_3o17_1_22ce94d10e25c725ed31e325'
             })
         });
 var format_Reserva_Equipamientos_3 = new ol.format.GeoJSON();
