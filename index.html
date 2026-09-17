@@ -6,7 +6,7 @@
     <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <title>Mapa Interactivo - Vista Limpia</title>
+    <title>Cuartel V - Zona III</title>
 
     <link rel="stylesheet" href="./resources/ol.css">
     <link rel="stylesheet" href="resources/fontawesome-all.min.css">
@@ -23,13 +23,51 @@
             background-color: #ffffff;
         }
 
+        /* ESCALA DEL MAPA */
+        .ol-scale-line {
+            display: block !important;
+            position: absolute !important;
+            bottom: 20px !important;
+            right: 20px !important;
+            left: auto !important;
+            background: rgba(255, 255, 255, 0.8) !important;
+            padding: 6px !important;
+            border-radius: 4px !important;
+            z-index: 9999 !important;
+        }
+
+        .ol-scale-line-inner {
+            border: 2px solid #333 !important;
+            border-top: none !important;
+            color: #333 !important;
+            font-size: 13px !important;
+            font-weight: bold !important;
+            text-align: center !important;
+            padding: 2px 4px !important;
+        }
+
+        /* TITULO */
+        #titulo-mapa {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 180px;
+            z-index: 1000;
+            font-family: Arial, Gadget, sans-serif;
+            font-size: 32px;
+            color: #000000;
+            text-align: center;
+            text-shadow: 2px 2px 5px rgba(255,255,255,0.8);
+            pointer-events: none;
+        }
+
         /* LOGO */
         #logo-institucional {
             position: absolute;
             top: 10px;
             right: 10px;
             z-index: 1002;
-            height: 60px;
+            height: 50px;
             width: auto;
             pointer-events: none;
         }
@@ -37,8 +75,8 @@
         /* FLECHA NORTE */
         #flecha-norte {
             position: absolute;
-            top: 90px;
-            right: 400px;
+            top: 75px;
+            right: 65px;
             width: 80px;
             height: 80px;
             z-index: 999;
@@ -48,8 +86,13 @@
 
         /* LEYENDA */
         .layer-switcher {
-            margin-top: 80px !important;
+            margin-top: 90px !important;
             padding-top: 0 !important;
+        }
+
+        .layer-switcher ul {
+            padding-top: 0 !important;
+            margin-top: 20px !important;
         }
 
         .layer-switcher ul::before {
@@ -57,36 +100,88 @@
             display: block;
             font-family: Arial, sans-serif;
             font-weight: bold;
-            font-size: 20px;
+            font-size: 25px;
             color: #333;
             text-align: center;
             border-bottom: 2px solid #eee;
+            position: relative;
+            top: -10px;
             padding: 0 5px 10px 5px;
-            margin-bottom: 10px;
+            margin-bottom: 0px;
         }
 
-        /* CONTROLES */
+        /* PIE */
+        #pie-direccion {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+            color: #888888;
+            text-align: center;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.6);
+            pointer-events: none;
+        }
+
+        /* ==================================================================== */
+        /* CONTROLES GENERALES ORIGINALES                                       */
+        /* ==================================================================== */
         .ol-control {
             background-color: rgba(255,255,255,.4) !important;
             padding: 2px !important;
+            border-radius: 4px;
         }
 
-        /* FIRMA PROFESIONAL DEL AUTOR */
-        #firma-autor {
-            position: absolute;
-            bottom: 0px;
-            left: 5px;
-            z-index: 1005; /* Lo ponemos por encima del mapa */
-            background: rgba(255, 255, 255, 0.7); /* Fondo semitransparente como el original */
-            padding: 2px 5px;
-            font-family: Arial, sans-serif;
-            font-size: 11px;
-            color: #888888;
-            font-weight: normal;
-            pointer-events: none; /* Para que los clics pasen de largo al mapa */
+        /* ==================================================================== */
+        /* BOTÓN DE PANTALLA COMPLETA                                           */
+        /* ==================================================================== */
+        .ol-full-screen {
+            position: absolute !important;
+            top: 10px !important;
+            left: 10px !important;
+            right: auto !important; /* OpenLayers lo pone a la derecha por defecto, lo movemos */
+        }
+        
+        .ol-full-screen button {
+            background-color: rgba(255,255,255,0.8) !important; 
+            color: #333 !important;
+            border-radius: 2px !important;
+            width: 30px !important;
+            height: 30px !important;
+            font-size: 0 !important; /* Ocultamos el texto original */
+            cursor: pointer;
         }
 
-        /* AJUSTES MÓVIL */
+        .ol-full-screen button::before {
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            content: "\f065"; /* Icono expandir */
+            font-size: 16px !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .ol-full-screen-true button::before {
+            content: "\f066"; /* Icono contraer */
+        }
+        
+        /* ==================================================================== */
+        /* BOTONES DE ZOOM                                                      */
+        /* ==================================================================== */
+        /* Empujamos el zoom hacia abajo para que quede debajo del FullScreen */
+        .ol-zoom {
+            position: absolute !important;
+            top: 50px !important;
+            left: 10px !important; 
+        }
+
+        /* ============================= */
+        /* AJUSTES SOLO PARA MOVIL       */
+        /* ============================= */
         @media screen and (max-width: 768px) {
             #logo-institucional {
                 height: 15px;
@@ -94,12 +189,38 @@
                 right: 5px;
             }
 
+            #titulo-mapa {
+                font-size: 15px;
+                top: 6px;
+                width: 65%;
+                left: 40%;
+                transform: translateX(-40%);
+                line-height: 1.2;
+            }
+
+            #pie-direccion {
+                font-size: 11px;
+                bottom: 40px;
+                width: 90%;
+            }
+
+            .ol-scale-line {
+                bottom: 65px !important;
+                right: 10px !important;
+            }
+
             .layer-switcher {
                 left: 5px !important;
-                margin-top: 40px !important;
+                margin-top: 55px !important;
                 font-size: 12px;
                 max-height: 60vh;
                 overflow-y: auto;
+            }
+
+            .ol-control button {
+                width: 34px !important; 
+                height: 34px !important;
+                font-size: 16px;
             }
 
             #flecha-norte {
@@ -108,27 +229,48 @@
                 top: 50px;
                 right: 50px;
             }
+
+            .ol-rotate {
+                display: none !important;
+            }
             
-            #firma-autor {
-                font-size: 9px;
-                bottom: 2px;
+            /* Ajustes móviles Pantalla Completa y Zoom */
+            .ol-full-screen {
+                top: 5px !important; 
+                left: 5px !important; 
+            }
+            .ol-full-screen button {
+                width: 34px !important; 
+                height: 34px !important;
+            }
+            .ol-full-screen button::before {
+                font-size: 18px !important; 
+            }
+            
+            .ol-zoom {
+                top: 45px !important;
+                left: 5px !important;
             }
         }
     </style>
 </head>
 
 <body>
-
-    <img id="logo-institucional" src="2026logo.png" alt="Logo Moreno IDUAR">
-    <img id="flecha-norte" src="flecha.svg" alt="Norte">
-
-    <div id="firma-autor"><strong>Map design & development by Engineer Nelson Pelayo</strong></div>
-
+    
     <div id="map">
+        
+        <img id="logo-institucional" src="2026logo.png" alt="Logo Moreno IDUAR">
+        <img id="flecha-norte" src="flecha.svg" alt="Norte">
+
+        <div id="pie-direccion">
+            Dirección General de Proyectos de Hábitat, Vivienda e Integración Urbana
+        </div>
+
         <div id="popup" class="ol-popup">
             <a href="#" id="popup-closer" class="ol-popup-closer"></a>
             <div id="popup-content"></div>
         </div>
+
     </div>
 
     <script src="resources/qgis2web_expressions.js"></script>
@@ -179,7 +321,7 @@
         }
         window.addEventListener("load", ajustarMapaMovil);
 
-        /* CONTROL FLECHA MOVIL */
+        /* OCULTAR FLECHA NORTE CUANDO SE ABRE LA LEYENDA EN MOVIL */
         function controlarFlechaMovil() {
             if (window.innerWidth <= 768) {
                 var flecha = document.getElementById("flecha-norte");
@@ -198,9 +340,101 @@
             }
         }
         window.addEventListener("load", controlarFlechaMovil);
+
+        /* OCULTAR FLECHA NORTE CUANDO SE ABRE LA LEYENDA EN PC (CLIC + HOVER) */
+        function controlarFlechaPC() {
+            if (window.innerWidth > 768) {
+                var flecha = document.getElementById("flecha-norte");
+                var panel = document.querySelector(".layer-switcher");
+                var boton = document.querySelector(".layer-switcher button");
+                if (!panel || !flecha || !boton) return;
+
+                panel.addEventListener("mouseenter", function() {
+                    flecha.style.display = "none";
+                });
+
+                panel.addEventListener("mouseleave", function() {
+                    if (!panel.classList.contains("shown")) {
+                        flecha.style.display = "block";
+                    }
+                });
+
+                boton.addEventListener("click", function() {
+                    setTimeout(function() {
+                        if (panel.classList.contains("shown")) {
+                            flecha.style.display = "none";
+                        } else {
+                            flecha.style.display = "block";
+                        }
+                    }, 200);
+                });
+            }
+        }
+        window.addEventListener("load", controlarFlechaPC);
+
+        /* ==================================================================== */
+        /* FORZAR LEYENDA CERRADA, ABRIR SOLO CON CLIC Y OCULTAR FLECHA (PC)    */
+        /* ==================================================================== */
+        function configurarLeyendaSoloClic() {
+            var panel = document.querySelector(".layer-switcher");
+            var boton = document.querySelector(".layer-switcher button");
+            var flecha = document.getElementById("flecha-norte");
+
+            if (!panel || !boton || !flecha) return;
+
+            setTimeout(function() {
+                panel.classList.remove("shown");
+            }, 100);
+
+            if (window.innerWidth > 768) {
+                var bloquearHoverNativo = function(e) {
+                    e.stopImmediatePropagation();
+                };
+
+                panel.addEventListener("mouseover", bloquearHoverNativo, true);
+                panel.addEventListener("mouseout", bloquearHoverNativo, true);
+                panel.addEventListener("pointerover", bloquearHoverNativo, true);
+                panel.addEventListener("pointerout", bloquearHoverNativo, true);
+
+                boton.addEventListener("click", function(e) {
+                    e.stopImmediatePropagation();
+                    e.preventDefault();
+                    panel.classList.toggle("shown");
+                    if (panel.classList.contains("shown")) {
+                        flecha.style.display = "none";
+                    } else {
+                        flecha.style.display = "block";
+                    }
+                }, true);
+            }
+        }
+        window.addEventListener("load", configurarLeyendaSoloClic);
+
+        /* ==================================================================== */
+        /* FUNCIONES DE CARGA FINAL (ESCALA Y PANTALLA COMPLETA)                */
+        /* ==================================================================== */
+        window.addEventListener("load", function() {
+            setTimeout(function() {
+                if (typeof map !== 'undefined') {
+                    // 1. ESCALA MÉTRICA
+                    map.addControl(new ol.control.ScaleLine({
+                        units: 'metric'
+                    }));
+                    
+                    // 2. BOTÓN DE PANTALLA COMPLETA
+                    map.addControl(new ol.control.FullScreen());
+                }
+            }, 1000);
+        });
     </script>
 </body>
 </html>
+      
+
+     
+        
+    
+     
 
 
 
