@@ -8,7 +8,7 @@ var wms_layers = [];
             
             source: new ol.source.XYZ({
             attributions: '&nbsp;&middot; <a href="https://cartodb.com/basemaps/">Map tiles by CartoDB, under CC BY 3.0. Data by OpenStreetMap, under ODbL.</a>',
-                url: 'https://a.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png?key=cb1_3o17_1_22ce94d10e25c725ed31e325'
+                url: 'https://a.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png?key=cb1_3ol7_1_22ce94d10e25c725ed31e325'
             })
         });
 
@@ -19,7 +19,7 @@ var wms_layers = [];
             
             source: new ol.source.XYZ({
             attributions: '&nbsp;&middot; <a href="https://cartodb.com/basemaps/">Map tiles by CartoDB, under CC BY 3.0. Data by OpenStreetMap, under ODbL.</a>',
-                url: 'http://a.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png?key=cb1_3o17_1_22ce94d10e25c725ed31e325'
+                url: 'https://a.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png?key=cb1_3ol7_1_22ce94d10e25c725ed31e325'
             })
         });
 
@@ -30,7 +30,7 @@ var wms_layers = [];
             
             source: new ol.source.XYZ({
             attributions: '&nbsp;&middot; <a href="https://cartodb.com/basemaps/">Map tiles by CartoDB, under CC BY 3.0. Data by OpenStreetMap, under ODbL.</a>',
-                url: 'https://a.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}@2x.png?key=cb1_3o17_1_22ce94d10e25c725ed31e325'
+                url: 'https://a.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}@2x.png?key=cb1_3ol7_1_22ce94d10e25c725ed31e325'
             })
         });
 var format_Reserva_Equipamientos_3 = new ol.format.GeoJSON();
