@@ -1,31 +1,31 @@
 var wms_layers = [];
 
-        var lyr_Positronnolabels_0 = new ol.layer.Tile({
-            'title': 'Positron [no labels]',
-            'opacity': 1.000000,
-            source: new ol.source.XYZ({
-            attributions: '&nbsp;&middot; <a href="https://cartodb.com/basemaps/">Map tiles by CartoDB, under CC BY 3.0. Data by OpenStreetMap, under ODbL.</a>',
-                url: 'https://a.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png?key=cb1_3o17_1_22ce94d10e25c725ed31e325&v=2'
-            })
-        });
+var lyr_Positronnolabels_0 = new ol.layer.Tile({
+    'title': 'Positron [no labels]',
+    'opacity': 1.000000,
+    source: new ol.source.XYZ({
+    attributions: '&nbsp;&middot; <a href="https://cartodb.com/basemaps/">Map tiles by CartoDB, under CC BY 3.0. Data by OpenStreetMap, under ODbL.</a>',
+        url: 'https://a.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png?key=cb1_3o17_1_22ce94d10e25c725ed31e325&v=3'
+    })
+});
 
-        var lyr_DarkMatternolabels_1 = new ol.layer.Tile({
-            'title': 'Dark Matter [no labels]',
-            'opacity': 1.000000,
-            source: new ol.source.XYZ({
-            attributions: '&nbsp;&middot; <a href="https://cartodb.com/basemaps/">Map tiles by CartoDB, under CC BY 3.0. Data by OpenStreetMap, under ODbL.</a>',
-                url: 'https://a.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png?key=cb1_3o17_1_22ce94d10e25c725ed31e325&v=2'
-            })
-        });
+var lyr_DarkMatternolabels_1 = new ol.layer.Tile({
+    'title': 'Dark Matter [no labels]',
+    'opacity': 1.000000,
+    source: new ol.source.XYZ({
+    attributions: '&nbsp;&middot; <a href="https://cartodb.com/basemaps/">Map tiles by CartoDB, under CC BY 3.0. Data by OpenStreetMap, under ODbL.</a>',
+        url: 'https://a.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png?key=cb1_3o17_1_22ce94d10e25c725ed31e325&v=3'
+    })
+});
 
-        var lyr_Voyagernolabelsretina_2 = new ol.layer.Tile({
-            'title': 'Voyager [no labels] (retina)',
-            'opacity': 1.000000,
-            source: new ol.source.XYZ({
-            attributions: '&nbsp;&middot; <a href="https://cartodb.com/basemaps/">Map tiles by CartoDB, under CC BY 3.0. Data by OpenStreetMap, under ODbL.</a>',
-                url: 'https://a.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}@2x.png?key=cb1_3o17_1_22ce94d10e25c725ed31e325&v=2'
-            })
-        });
+var lyr_Voyagernolabelsretina_2 = new ol.layer.Tile({
+    'title': 'Voyager [no labels] (retina)',
+    'opacity': 1.000000,
+    source: new ol.source.XYZ({
+    attributions: '&nbsp;&middot; <a href="https://cartodb.com/basemaps/">Map tiles by CartoDB, under CC BY 3.0. Data by OpenStreetMap, under ODbL.</a>',
+        url: 'https://a.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}@2x.png?key=cb1_3o17_1_22ce94d10e25c725ed31e325&v=3'
+    })
+});
 
 var format_Reserva_Equipamientos_3 = new ol.format.GeoJSON();
 var features_Reserva_Equipamientos_3 = format_Reserva_Equipamientos_3.readFeatures(json_Reserva_Equipamientos_3, 
@@ -72,24 +72,25 @@ var lyr_BarriosPopulares_5 = new ol.layer.Vector({
                 style: style_BarriosPopulares_5,
                 popuplayertitle: 'Barrios Populares',
                 interactive: false,
-    title: 'Barrios Populares<br />\
-    <img src="styles/legend/BarriosPopulares_5_0.png" /> 18 de Julio<br />\
-    <img src="styles/legend/BarriosPopulares_5_1.png" /> 23 de Diciembre<br />\
-    <img src="styles/legend/BarriosPopulares_5_2.png" /> 3 de Febrero<br />\
-    <img src="styles/legend/BarriosPopulares_5_3.png" /> 5 de Enero<br />\
-    <img src="styles/legend/BarriosPopulares_5_4.png" /> 6 Manzanas<br />\
-    <img src="styles/legend/BarriosPopulares_5_5.png" /> 8 de Diciembre<br />\
-    <img src="styles/legend/BarriosPopulares_5_6.png" /> El Progreso<br />\
-    <img src="styles/legend/BarriosPopulares_5_7.png" /> La Union<br />\
-    <img src="styles/legend/BarriosPopulares_5_8.png" /> Los Cedros<br />\
-    <img src="styles/legend/BarriosPopulares_5_9.png" /> Los Hornos<br />\
-    <img src="styles/legend/BarriosPopulares_5_10.png" /> Lujan<br />\
-    <img src="styles/legend/BarriosPopulares_5_11.png" /> Portugal<br />\
-    <img src="styles/legend/BarriosPopulares_5_12.png" /> Primero de Marzo<br />\
-    <img src="styles/legend/BarriosPopulares_5_13.png" /> Primero de Mayo<br />\
-    <img src="styles/legend/BarriosPopulares_5_14.png" /> San Alberto<br />\
-    <img src="styles/legend/BarriosPopulares_5_15.png" /> San Cayetano<br />\
-    <img src="styles/legend/BarriosPopulares_5_16.png" /> San Francisco<br />' });
+    title: 'Barrios Populares<br />' +
+    '<img src="styles/legend/BarriosPopulares_5_0.png" /> 18 de Julio<br />' +
+    '<img src="styles/legend/BarriosPopulares_5_1.png" /> 23 de Diciembre<br />' +
+    '<img src="styles/legend/BarriosPopulares_5_2.png" /> 3 de Febrero<br />' +
+    '<img src="styles/legend/BarriosPopulares_5_3.png" /> 5 de Enero<br />' +
+    '<img src="styles/legend/BarriosPopulares_5_4.png" /> 6 Manzanas<br />' +
+    '<img src="styles/legend/BarriosPopulares_5_5.png" /> 8 de Diciembre<br />' +
+    '<img src="styles/legend/BarriosPopulares_5_6.png" /> El Progreso<br />' +
+    '<img src="styles/legend/BarriosPopulares_5_7.png" /> La Union<br />' +
+    '<img src="styles/legend/BarriosPopulares_5_8.png" /> Los Cedros<br />' +
+    '<img src="styles/legend/BarriosPopulares_5_9.png" /> Los Hornos<br />' +
+    '<img src="styles/legend/BarriosPopulares_5_10.png" /> Lujan<br />' +
+    '<img src="styles/legend/BarriosPopulares_5_11.png" /> Portugal<br />' +
+    '<img src="styles/legend/BarriosPopulares_5_12.png" /> Primero de Marzo<br />' +
+    '<img src="styles/legend/BarriosPopulares_5_13.png" /> Primero de Mayo<br />' +
+    '<img src="styles/legend/BarriosPopulares_5_14.png" /> San Alberto<br />' +
+    '<img src="styles/legend/BarriosPopulares_5_15.png" /> San Cayetano<br />' +
+    '<img src="styles/legend/BarriosPopulares_5_16.png" /> San Francisco<br />' 
+});
 
 var format_CallesMloreno_6 = new ol.format.GeoJSON();
 var features_CallesMloreno_6 = format_CallesMloreno_6.readFeatures(json_CallesMloreno_6, 
